@@ -1,0 +1,156 @@
+@import "tailwindcss";
+@font-face {
+    font-family: "inter";
+    src: url("/font/Inter/inter.woff2") format("woff2");
+    font-style: normal;
+    font-display: fallback;
+}
+@font-face {
+    font-family: "mono";
+    src: url("/font/Mono/mono.woff2") format("woff2");
+    font-style: normal;
+    font-display: fallback;
+}
+@theme {
+  --font-inter: "inter","mono", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "mono","inter" , ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility scroll-progress-provider {
+  /* 创建一个 Tailwind 自定义工具类，名字叫 scroll-progress-provider */
+  animation: header-scroll-progress linear both;
+  animation-timeline: scroll(root block);
+  animation-range: 0px 100000px;
+}
+
+@property --scroll-progress-root {
+  syntax: "<number>";/* 说明这个变量的类型是数字 */
+  inherits: false;/* 取消继承 */
+  initial-value: 0;/* 初始滚动值是 0 */
+}
+
+@keyframes header-scroll-progress {
+  0% {
+    --scroll-progress-root: 0;
+  }
+  100% {
+    --scroll-progress-root: 100000;
+  }
+}
+
+:root{
+    --palette-main-color:#7a73c0;
+    --palette-text-dark-black:#282828;
+    --palette-text-light-black:#e4e4e4;
+
+    --palette-bg-light-black:#ebebea;
+    --palette-bg-dark-black:#151519;
+
+    --palette-dark-grey: #131316;
+    --palette-light-grey: #ededec;
+
+    --palette-medium-grey: #8c8c8b;
+    --palette-light-link-normal :#726bc4;
+    --palette-light-link-hover:#85a0d7;
+
+    --palette-dark-link-normal :#8f89c6;
+    --palette-dark-link-hover:#85a0d7;
+}
+
+html {
+    background-color: var(--palette-light-grey);
+    color: var(--palette-text-dark-black);
+    color-scheme: light dark;
+    scrollbar-gutter: stable;
+}
+
+@supports not (scrollbar-gutter: stable) {
+    html {
+        overflow-y: scroll;
+    }
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--palette-light-grey);
+    color: inherit;
+    font-family: var(--font-inter);
+}
+
+body a {
+    color: var(--palette-light-link-normal);
+}
+
+body a:hover {
+    color: var(--palette-light-link-hover);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    html,
+    body {
+        background-color: var(--palette-dark-grey);
+        color: var(--palette-text-light-black);
+    }
+
+    body a {
+        color: var(--palette-dark-link-normal);
+    }
+
+    body a:hover {
+        color: var(--palette-dark-link-hover);
+    }
+}
+
+
+
+/* 过渡动画参考: 
+    https://developer.chrome.com/docs/web-platform/view-transitions/same-document?hl=zh-cn
+    https://reactrouter.remix.org.cn/how-to/view-transitions
+*/
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-title-from-bottom {
+  from {
+    transform: translateY(40px);
+  }
+}
+@keyframes slide-title-to-top {
+  to {
+    transform: translateY(-13px);
+  }
+}
+::view-transition-old(content-view) {
+  animation: 50ms ease-out both fade-out;
+}
+::view-transition-new(content-view) {
+  animation: 150ms ease-out both fade-in;
+}
+
+::view-transition-old(.herotitle):only-child,
+::view-transition-old(.article-title):only-child {
+  animation: 110ms ease-in-out both fade-out,
+    160ms cubic-bezier(0.4, 0, 0.2, 1) both slide-title-to-top;
+}
+::view-transition-new(.herotitle):only-child,
+::view-transition-new(.article-title):only-child {
+  animation: 400ms ease-in-out 40ms both fade-in,
+    400ms cubic-bezier(0.02, 0.02, 0.24, 1) 40ms both slide-title-from-bottom;
+}
+
+::view-transition-old(.herotitle) {
+    height: 100%;
+}
+::view-transition-new(.herotitle) {
+    height: 100%;
+}

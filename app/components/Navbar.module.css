@@ -1,0 +1,41 @@
+.navbarlink {
+  display: inline-grid;
+  grid-template-areas: "label"; 
+  place-items: center;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 400;
+  opacity: 0.6;
+  letter-spacing: 1.7px;
+  color: var(--palette-medium-grey);
+  white-space: nowrap;
+  transition: font-weight .2s,opacity .4s,color .4s;
+
+  &.active {
+    opacity: 1;
+    font-weight: 700;
+    color: var(--palette-main-color);
+    letter-spacing: 1.5px;
+    &:hover {
+      color: var(--palette-main-color);
+    }
+  }
+  &:hover {
+    opacity: 1;
+    color: var(--palette-medium-grey);
+  }
+
+  & > span,
+  &::after {
+    grid-area: label;
+  }
+
+  /* Reserve the active width so font loading and active styles do not move neighbors. */
+  &::after {
+    visibility: hidden;
+    content: attr(data-text);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    overflow: hidden;
+  }
+}
