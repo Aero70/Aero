@@ -34,8 +34,8 @@ export default function Blog () {
                                     day:date.getUTCDate(),
                                 }}
                             />
-                            <div className="flex flex-col text-lg gap-3 text-[.95rem] leading-[1.325rem]">
-                            <h2 className="font-semibold text-4xl leading-8">
+                            <div className="flex flex-col text-lg gap-4 text-[1rem] leading-[1.4rem]">
+                            <h2 className="text-[2rem] lg:text-[2.2rem] leading-[2.1rem] mt-1">
                                 <Link 
                                     to={slug} 
                                     style={{ viewTransitionName: `blog-article-title-${slug}` }} 

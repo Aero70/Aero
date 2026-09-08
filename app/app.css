@@ -63,6 +63,10 @@ html {
     color-scheme: light dark;
     scrollbar-gutter: stable;
 }
+html,
+body {
+  overflow-x: clip;
+}
 
 @supports not (scrollbar-gutter: stable) {
     html {

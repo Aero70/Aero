@@ -44,7 +44,7 @@ const DateSingle = ({date,showYear = true} : {
                 )}
 
                 {date.day && (
-                    <div className="text-[1.9rem] flex justify-center leading-[3.2rem] tabular-nums">
+                    <div className="text-[1.9rem] flex justify-center leading-[2.5rem] tabular-nums">
                         {[date.day < 10 ? "0" : null , ...date.day.toString().split("")].map(
                             (digit , index) => (
                                 <span key={index}>{digit}</span>

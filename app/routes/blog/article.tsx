@@ -38,7 +38,7 @@ export default function BlogIndex () {
             </h1>
             
             <div style={{ viewTransitionName: `blog-article-container-${slug}` }}>
-                <div className="flex gap-6 mb-10">
+                <div className="flex gap-3 lg:gap-6 mb-10">
                     <TimelineDateSquare 
                         style={{ viewTransitionName: `blog-article-date-${slug}` }}
                         date={{
@@ -47,7 +47,7 @@ export default function BlogIndex () {
                             day:date.getUTCDate(),
                         }}
                     />
-                    <h1 className="leading-[4.5rem] text-[4rem] font-bold">
+                    <h1 className="text-[3.2rem] leading-[3.2rem] sm:text-[4rem] sm:leading-[4rem] lg:text-[5rem] lg:leading-[4.5rem] md:text-[4rem] md:leading-[3.9rem] tracking-wide font-bold mt-[3px]">
                         <span style={{ viewTransitionName: `blog-article-title-${slug}` }}
                             className="[view-transition-class:article-title]">
                             { article.title }
@@ -55,7 +55,7 @@ export default function BlogIndex () {
                     </h1>
                 </div>
                 
-                <div className="space-y-10 text-[16px] " >
+                <div className="space-y-8 text-[16px] " >
                     <Article
                         components={(() => {
                         const slugify = (text: string) =>

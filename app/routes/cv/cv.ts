@@ -24,6 +24,7 @@ export const CV_DATA = {
       stack: [
         "JavaScript",
         "Photoshop",
+        "Illustrator",
         "Tampermonkey",
       ],
     },

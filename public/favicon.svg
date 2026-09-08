@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.48 13.54">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #8059d4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M7.74.5L.5,13.04M11.54,13.04l-3.8-6.59M9.46,3.47l-3.82,6.6M2.21,10.06h7.61M.5,13.04h14.48L7.74.5"/>
+</svg>

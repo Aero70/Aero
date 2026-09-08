@@ -29,19 +29,19 @@ type DragValue = { x: number; y: number }; // 拖拽偏移值
  * moved: 是否真的发生过拖动，用来区分 click 和 drag。
  * origin: 本次拖拽开始时 logo 已经存在的拖拽偏移。
  */
-type DragStart = {
+export type DragStart = {
   x: number;
   y: number;
   moved: boolean;
   origin: DragValue;
 };
 
-type LogoCssVariables = CSSProperties & {
+export type LogoCssVariables = CSSProperties & {
   "--striped-cube-logo-color"?: string;
   "--striped-cube-logo-stroke-width"?: string | number;
 };
 
-type LogoBackgroundImageOptions = {
+export type LogoBackgroundImageOptions = {
   color?: string;
   strokeWidth?: number | string;
   backgroundColor?: string;
@@ -50,7 +50,7 @@ type LogoBackgroundImageOptions = {
   strokeLinecap?: "butt" | "round" | "square";
 };
 
-type LogoBackgroundVariablesOptions = {
+export type LogoBackgroundVariablesOptions = {
   light?: LogoBackgroundImageOptions;
   dark?: LogoBackgroundImageOptions;
   lightVariableName?: `--${string}`;

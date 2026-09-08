@@ -10,10 +10,16 @@ import {
 import "./app.css";
 import { GlobalInitialRenderContext } from "./contexts/GlobalInitialRenderContext";
 import { useIsInitialRender } from "./hooks/useIsInitialRender";
+import { useLocation } from "react-router";
 
 import { createMeta } from "./utils/Meta"
-import type { Route } from "./+types/root";
+import { getBackgroundTheme } from "./data/themes"
 import { PageLayout } from "./components/PageLayout"
+
+import {
+  createLogoBackgroundVariables,
+} from "~/components/logo";
+import type { Route } from "./+types/root";
 
 export const meta : MetaFunction = () => {
   return createMeta({
@@ -23,11 +29,14 @@ export const meta : MetaFunction = () => {
     url: "https://Aero",
   })
 }
-import {
-  createLogoBackgroundVariables,
-} from "~/components/logo";
+
 
 export const links: Route.LinksFunction = () => [
+  {
+    rel: "icon",
+    href: "/favicon.svg",
+    type: "image/svg+xml",
+  },
   {
     rel: "preload",
     href: "/font/Inter/inter.woff2",
@@ -45,6 +54,8 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const location = useLocation();
+  const ThemeSwitching = getBackgroundTheme(location.pathname);
   return (
     <html lang="en">
       <head>
@@ -74,14 +85,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links /> 
       </head>
       <body className="bg-(image:--Aero-background-light) dark:bg-(image:--Aero-background-dark) bg-(--palette-light-grey) dark:bg-(--palette-dark-grey)"
-        style={createLogoBackgroundVariables({
-          light: {
-            color: "#e9e9e8",
-          },
-          dark: {
-            color: "#151519",
-          },
-        })}
+        style={createLogoBackgroundVariables(ThemeSwitching)}
       >
         <GlobalInitialRenderContext.Provider value={useIsInitialRender()}>
           <PageLayout>{children}</PageLayout>
@@ -98,19 +102,20 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  const routeError: any = error;
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
 
-  if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "404" : "Error";
+  if (isRouteErrorResponse(routeError)) {
+    message = routeError.status === 404 ? "404" : "Error";
     details =
-      error.status === 404
+      routeError.status === 404
         ? "The requested page could not be found."
-        : error.statusText || details;
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
-    details = error.message;
-    stack = error.stack;
+        : routeError.statusText || details;
+  } else if (routeError instanceof Error) {
+    details = routeError.message;
+    stack = import.meta.env.DEV ? routeError.stack : undefined;
   }
 
   return (

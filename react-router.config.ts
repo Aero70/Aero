@@ -34,9 +34,9 @@ function getArticlePrerenderPaths() {
 }
 
 export default {
-  ssr: false,
+  ssr: false, 
 
   async prerender() {
-    return ["/", "/blog", "/cv", "/rss.xml", ...getArticlePrerenderPaths()];
+    return ["/", "/blog", "/games","/cv", "/rss.xml", ...getArticlePrerenderPaths()];
   },
 } satisfies Config;

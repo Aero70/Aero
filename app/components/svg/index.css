@@ -1,0 +1,29 @@
+.outlineChar {
+    fill: none;
+    stroke: #00000029;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-dasharray: 2600;
+    stroke-dashoffset: 2600;
+    
+    font-size: 310px;
+    font-weight: 900;
+
+    animation: draw-outline 1850ms ease-out forwards;
+}
+
+.textSVG {
+    position: absolute;
+    left: 50%;
+    width: min(960px, 115vw);
+    max-width: none;
+    transform: translateX(-50%);
+
+    pointer-events: none;
+}
+
+@keyframes draw-outline {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
