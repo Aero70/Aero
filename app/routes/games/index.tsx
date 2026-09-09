@@ -54,11 +54,14 @@ export default function Games() {
           <div className="flex gap-12 ">
             <Link 
               to={gameUrl} 
-              target="_blank" 
-              className="flex border-b-2 mt-3 lg:mt-5 w-fit items-center cursor-pointer text-black dark:text-(--palette-main-color)"
+              target="_blank"
+              className=" mt-3 lg:mt-5 w-fit  cursor-pointer "
             >
-              OPEN GAME!
-              <RightIcon className="w-3 ml-2 fill-black dark:fill-(--palette-main-color)"></RightIcon>
+              <span className="flex items-center text-black dark:text-(--palette-main-color) border-b-2 border-black dark:border-(--palette-main-color)">
+                OPEN GAME!
+                <RightIcon className="w-3 ml-2 fill-black dark:fill-(--palette-main-color)"></RightIcon>
+              </span>
+              
             </Link>
           </div>
         </div>
