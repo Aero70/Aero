@@ -44,7 +44,7 @@ const NavbarLink: React.FC<NavbarLinkProps> = ({ to, text, exact }) => {
 export const PageLayout:React.FC<React.PropsWithChildren> = ({children}) =>{
     const { pathname } = useLocation();
     const isGamesPage = pathname.startsWith("/games");
-
+    
     const currentNavbarItem = navbarItems.find(({ to, exact }) =>
       exact ? pathname === to : pathname.startsWith(to)
     );
