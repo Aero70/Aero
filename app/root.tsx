@@ -21,6 +21,8 @@ import {
 } from "~/components/logo";
 import type { Route } from "./+types/root";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 export const meta : MetaFunction = () => {
   return createMeta({
     title : "Aero — Developer",
@@ -34,19 +36,19 @@ export const meta : MetaFunction = () => {
 export const links: Route.LinksFunction = () => [
   {
     rel: "icon",
-    href: "/favicon.svg",
+    href: `${baseUrl}favicon.svg`,
     type: "image/svg+xml",
   },
   {
     rel: "preload",
-    href: "/font/Inter/inter.woff2",
+    href: `${baseUrl}font/Inter/inter.woff2`,
     as: "font",
     type: "font/woff2",
     crossOrigin: "anonymous",
   },
   {
     rel: "preload",
-    href: "/font/Mono/mono.woff2",
+    href: `${baseUrl}font/Mono/mono.woff2`,
     as: "font",
     type: "font/woff2",
     crossOrigin: "anonymous",
