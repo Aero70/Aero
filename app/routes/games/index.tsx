@@ -34,8 +34,8 @@ export default function Games() {
       </span>
       
       <section className="relative isolate w-full">
-        <TextSVG text="PLAY" position={{x:210,y:230}} className="stroke-4 lg:stroke-1 lg:mt-0" />
-        <TextSVG text="HERE" position={{x:215,y:230}} className="stroke-4 lg:stroke-1 lg:hidden mt-38" />
+        <TextSVG text="PLAY" position={{x:210,y:230}} className="stroke-4 lg:stroke-1 lg:mt-0 stroke-[#000000]/20 dark:stroke-[#fff]/15" />
+        <TextSVG text="HERE" position={{x:215,y:230}} className="stroke-4 lg:stroke-1 lg:hidden mt-38 stroke-[#000000]/20 dark:stroke-[#fff]/15" />
         <div 
           style={{ viewTransitionName: `hero-title-Games` }} 
           className={['flex flex-col lg:mt-52 mt-76','[view-transition-class:herotitle]'].join(' ')}
@@ -47,19 +47,18 @@ export default function Games() {
           <span className="text-[2.8rem] font-bold leading-16" >
               {GetGameData.title}
           </span>
-          <span className="text-[.8rem] lg:text-[1rem] w-xs lg:w-[32rem] text-neutral-400 dark:text-neutral-500 leading-4 lg:leading-6">
+          <span className="text-[.8rem] lg:text-[1rem] w-xs lg:w-[32rem] text-neutral-400 dark:text-(--palette-text-light-black)/50 leading-4 lg:leading-6">
             {GetGameData.description}
           </span> 
 
-          <div className="flex gap-12">
+          <div className="flex gap-12 ">
             <Link 
               to={gameUrl} 
               target="_blank" 
-              style={{color:"black"}} 
-              className="flex border-b-2 mt-3 lg:mt-5 w-fit items-center  cursor-pointer"
+              className="flex border-b-2 mt-3 lg:mt-5 w-fit items-center cursor-pointer text-(--palette-text-dark-black) dark:text-(--palette-main-color)"
             >
               OPEN GAME!
-              <RightIcon className="w-3 ml-2 fill-black"></RightIcon>
+              <RightIcon className="w-3 ml-2 fill-black dark:fill-(--palette-main-color)"></RightIcon>
             </Link>
           </div>
         </div>
@@ -76,10 +75,6 @@ export default function Games() {
             <span className="text-[.9rem] lg:text-[1rem]">{GetGameData.platform}</span>
           </div>
 
-          <div className=" absolute right-0 text-neutral-500 flex items-center flex-col text-[.8rem]">
-            <span className="leading-4">Next Game</span>
-            <span>not</span>
-          </div>
         </div>
       </section>
     </>

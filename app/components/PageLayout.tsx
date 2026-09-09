@@ -120,8 +120,8 @@ export const PageLayout:React.FC<React.PropsWithChildren> = ({children}) =>{
               </div>
             </div>
 
-            {navListCut && <div className='sm:hidden fixed inset-0 z-9 bg-white/35 backdrop-blur-[6px]'>
-              <ul className=" absolute inset-0 top-42 pt-6 px-6 flex flex-col border-t border-t-gray-300/20 gap-6 text-[1.2rem]">
+            {navListCut && <div className='sm:hidden fixed inset-0 z-9 bg-white/35 dark:bg-black/35 backdrop-blur-[6px]'>
+              <ul className=" absolute inset-0 top-42 pt-6 px-6 flex flex-col border-t border-t-gray-300/20 dark:border-t-gray-600/20 gap-6 text-[1.2rem]">
                 <div onClick={()=>setnavListCut(false)}><NavbarLink to="/" text="Hello" exact /></div>
                 <div onClick={()=>setnavListCut(false)}><NavbarLink to="/blog" text="Blog" /></div>
                 <div onClick={()=>setnavListCut(false)}><NavbarLink to="/games" text="Games" /></div>
