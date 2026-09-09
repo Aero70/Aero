@@ -55,7 +55,7 @@ export default function Games() {
             <Link 
               to={gameUrl} 
               target="_blank" 
-              className="flex border-b-2 mt-3 lg:mt-5 w-fit items-center cursor-pointer text-(--palette-text-dark-black) dark:text-(--palette-main-color)"
+              className="flex border-b-2 mt-3 lg:mt-5 w-fit items-center cursor-pointer text-black dark:text-(--palette-main-color)"
             >
               OPEN GAME!
               <RightIcon className="w-3 ml-2 fill-black dark:fill-(--palette-main-color)"></RightIcon>
