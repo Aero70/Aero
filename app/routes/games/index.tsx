@@ -66,7 +66,7 @@ export default function Games() {
           </div>
         </div>
 
-        <div className="absolute right-1/2 translate-x-1/2 lg:translate-none -top-30 lg:-right-42 lg:-top-32 scale-60 lg:scale-100">
+        <div className="hidden sm:block absolute right-1/2 translate-x-1/2 lg:translate-none -top-30 lg:-right-42 lg:-top-32 scale-60 lg:scale-100">
           <PhoneMockup isExpanded={isMockupExpanded} setIsExpanded={setIsMockupExpanded} screenSrc={gameUrl} />
         </div>
 
