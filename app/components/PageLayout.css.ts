@@ -35,7 +35,7 @@ export const scrollDerivedVariables = style({
     "--navbar-opacity": threshold(200, [100, 0], "%"),
     "--navbar-translate-x": threshold(200, [0, -13], "px"),
     "--navbar-z-index": threshold(200, [0, -10]),
-    "--navbar-small-Top": map([0, 160], [10.5, 5.5],"rem"),
+    "--navbar-small-Top": map([0, 160], [10.5, 4.5],"rem"),
     "--logo-width": map([70, 160], [64, 48], "px"),
     "--header-blur": map([150, 220], [0, 9], "px"),
     "--margin-top": map([0, 160], [70, 0], "px"),
