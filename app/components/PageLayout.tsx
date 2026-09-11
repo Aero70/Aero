@@ -33,7 +33,7 @@ const NavbarLink: React.FC<NavbarLinkProps> = ({ to, text, exact }) => {
         ].filter(Boolean).join(" ")}
         to={to}
         data-text={text}
-        viewTransition={false}
+        viewTransition={pathname !== to}
       >
         <span>{text}</span>
       </Link>
