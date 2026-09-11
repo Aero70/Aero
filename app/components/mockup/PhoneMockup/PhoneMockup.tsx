@@ -175,7 +175,7 @@ export default function PhoneMockup(
         >
             {isSmallScreen === true && (
                 <div className="flex h-full w-full items-center justify-center perspective-[1100px]">
-                    {/* <PhoneNode
+                    <PhoneNode
                         phoneRef={phoneRef}
                         expandedScale={1}
                         isExpanded={false}
@@ -190,7 +190,7 @@ export default function PhoneMockup(
                                 );
                             }
                         }}
-                    /> */}
+                    />
                 </div>
             )}
             {isSmallScreen === false && isMounted && createPortal(

@@ -210,7 +210,7 @@ export function PhoneNode ({
                         <div className="absolute left-1/2 top-3 z-10 h-5 w-20 -translate-x-1/2 rounded-full bg-neutral-950" />
                         
                         {/* 屏幕视口 */}
-                        <div className="h-full w-full">
+                        {/* <div className="h-full w-full">
                             {previewSrc || !screenSrc ? (
                                 <img
                                     alt="Game preview"
@@ -233,7 +233,7 @@ export function PhoneNode ({
                                     ].join(" ")}
                                 />
                             )}
-                        </div>
+                        </div> */}
 
                         {/* 屏幕玻璃反光 */}
                         {!isExpanded && (<div
