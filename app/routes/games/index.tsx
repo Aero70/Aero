@@ -20,6 +20,7 @@ export const meta = () => {
 export default function Games() {
   const [isMockupExpanded, setIsMockupExpanded] = useState(false);
   const gameUrl = GetGameData.url.find(({ name }) => name === "gameUrl")?.src ?? "";
+  const previewSrc = GetGameData.url.find(({ name }) => name === "previewSrc")?.src ?? "";
 
   return (
     <>
@@ -67,7 +68,7 @@ export default function Games() {
         </div>
 
         <div className="absolute right-1/2 translate-x-1/2 lg:translate-none -top-30 lg:-right-42 lg:-top-32 scale-60 lg:scale-100">
-          <PhoneMockup isExpanded={isMockupExpanded} setIsExpanded={setIsMockupExpanded} screenSrc={gameUrl} />
+          <PhoneMockup isExpanded={isMockupExpanded} setIsExpanded={setIsMockupExpanded} screenSrc={gameUrl} previewSrc={previewSrc} />
         </div>
 
         <div className="hidden sm:flex justify-center items-center absolute mt-2 lg:mt-25 w-full sm:border-t border-t-black/10 pt-6 ">

@@ -19,11 +19,13 @@ export default function PhoneMockup(
     className,
     isExpanded,
     screenSrc,
+    previewSrc,
     setIsExpanded
 } : {
     className ?: string
     isExpanded : boolean
     screenSrc : string
+    previewSrc : string
     setIsExpanded : (value:boolean) => void
 }) {
     const placeholderRef = useRef<HTMLDivElement>(null);
@@ -178,6 +180,7 @@ export default function PhoneMockup(
                         expandedScale={1}
                         isExpanded={false}
                         screenSrc={screenSrc}
+                        previewSrc={previewSrc}
                         onActivate={() => {
                             if (screenSrc) {
                                 window.open(

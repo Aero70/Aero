@@ -125,12 +125,14 @@ export function PhoneNode ({
     expandedScale,
     isExpanded,
     screenSrc,
+    previewSrc,
     onActivate,
 }:{
     phoneRef : RefObject<HTMLDivElement | null>
     expandedScale:number
     isExpanded:boolean
     screenSrc:string
+    previewSrc?: string
     onActivate: () => void;
 }) {
     const previewPose = {
@@ -209,30 +211,28 @@ export function PhoneNode ({
                         
                         {/* 屏幕视口 */}
                         <div className="h-full w-full">
-                            {!screenSrc ? 
-                            <img
-                                alt="Phone screen preview"
-                                src="https://images.pexels.com/photos/32296537/pexels-photo-32296537.jpeg"
-                                className="h-full w-full object-cover rounded-[2.2rem] pointer-events-none"
-                            />
-                            :<iframe
-                                title="view game"
-                                srcDoc={`<!doctype html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body style="margin:0; background:#facc15; color:#111">
-        <div style="padding:48px 16px">
-            IFRAME TEST
-        </div>
-    </body>
-</html>`}
-                                className={[
-                                    "h-full w-full rounded-[2.2rem] border-0 bg-black",
-                                    isExpanded ? "pointer-events-auto" : "pointer-events-none",
-                                ].join(" ")}
-                            />}
+                            {previewSrc || !screenSrc ? (
+                                <img
+                                    alt="Game preview"
+                                    src={
+                                        previewSrc ||
+                                        "https://images.pexels.com/photos/32296537/pexels-photo-32296537.jpeg"
+                                    }
+                                    draggable={false}
+                                    className={[
+                                        "h-full w-full rounded-[2.2rem] pointer-events-none object-cover",
+                                    ].join(" ")}
+                                />
+                            ) : (
+                                <iframe
+                                    title="view game"
+                                    src={screenSrc}
+                                    className={[
+                                        "h-full w-full rounded-[2.2rem] border-0 bg-black",
+                                        isExpanded ? "pointer-events-auto" : "pointer-events-none",
+                                    ].join(" ")}
+                                />
+                            )}
                         </div>
 
                         {/* 屏幕玻璃反光 */}

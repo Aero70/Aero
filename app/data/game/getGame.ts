@@ -27,6 +27,10 @@ export const GetGameData: GetGameProps = {
       name : "SourceUrl",
       src : "https://aero70.github.io/snake/" 
     },
+    {
+      name : "previewSrc",
+      src : "/images/games/snake-preview.png" 
+    },
   ]
 };
 
