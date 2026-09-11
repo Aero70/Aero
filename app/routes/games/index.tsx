@@ -34,21 +34,20 @@ export default function Games() {
         Experiments that can be touched, turned, and play.
       </span>
       
-      <section className="relative isolate w-full">
-        <TextSVG text="PLAY" position={{x:210,y:230}} className="stroke-4 lg:stroke-1 lg:mt-0 stroke-[#000000]/20 dark:stroke-[#fff]/15" />
+      <section className="relative isolate w-full mt-6">
+        <TextSVG text="PLAY" position={{x:210,y:230}} className="stroke-4 lg:stroke-1 mt-6 stroke-[#000000]/20 dark:stroke-[#fff]/15" />
         <TextSVG text="HERE" position={{x:215,y:230}} className="stroke-4 lg:stroke-1 lg:hidden mt-38 stroke-[#000000]/20 dark:stroke-[#fff]/15" />
         <div 
           style={{ viewTransitionName: `hero-title-Games` }} 
-          className={['flex flex-col lg:mt-52 mt-76','[view-transition-class:herotitle]'].join(' ')}
+          className={['flex flex-col mt-82 lg:mt-52 ','[view-transition-class:herotitle]'].join(' ')}
         >
-          
           <h1 className={`text-[1rem] text-(--palette-main-color) leading-2`}>
             <span>{GetGameData.tags.join(" - ")}</span>
           </h1>
           <span className="text-[2.8rem] font-bold leading-16" >
               {GetGameData.title}
           </span>
-          <span className="text-[.8rem] lg:text-[1rem] w-xs lg:w-[32rem] text-neutral-400 dark:text-(--palette-text-light-black)/50 leading-4 lg:leading-6">
+          <span className="text-[1rem] w-full lg:w-[32rem] text-neutral-400 dark:text-(--palette-text-light-black)/50 leading-5 lg:leading-6">
             {GetGameData.description}
           </span> 
 
@@ -56,7 +55,7 @@ export default function Games() {
             <Link 
               to={gameUrl} 
               target="_blank"
-              className=" mt-3 lg:mt-5 w-fit  cursor-pointer "
+              className=" mt-5 w-fit  cursor-pointer "
             >
               <span className="flex items-center text-black dark:text-(--palette-main-color) border-b-2 border-black dark:border-(--palette-main-color)">
                 OPEN GAME!
