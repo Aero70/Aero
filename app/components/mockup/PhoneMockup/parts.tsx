@@ -170,7 +170,7 @@ export function PhoneNode ({
                 }}
             >
                 {/* 整体机身 */}
-                {Array.from({ length: 5 }).map((_, index) => (
+                {Array.from({ length: 20 }).map((_, index) => (
                     <div
                         key={index}
                         className="absolute inset-0 rounded-[2.4rem] border-2 border-white/25"
