@@ -2,7 +2,10 @@ import { motion } from "motion/react";
 import type { RefObject } from "react";
 
 export const METAL_DEPTH = 38; // 机身厚度
+export const METAL_DEPTH_SM = 28; // 手机浏览时机身厚度
 export const BUTTON_RISE = 3; // 按钮厚度
+
+const isPhone = window.matchMedia("(width < 640px)").matches;
 
 // 动画运动过渡
 export const PHONE_SPRING = {
@@ -94,7 +97,7 @@ export function AntennaBand({
         style={{
             top,
             bottom,
-            width: `${METAL_DEPTH + 3 }px`,
+            width: `${(isPhone ? METAL_DEPTH_SM : METAL_DEPTH) + 3 }px`,
             left: isLeft ? "0px" : undefined,
             right: isLeft ? undefined : "0px",
             transform: isLeft ? "rotateY(90deg) translateX(-3px)" : "rotateY(-90deg)",
@@ -169,8 +172,8 @@ export function PhoneNode ({
                     willChange: "transform",
                 }}
             >
-                {/* 整体机身 */}
-                {Array.from({ length: window.matchMedia("(width < 640px)").matches ? 30 : METAL_DEPTH }).map((_, index) => (
+                {/* 整体机身 // 手机减少层数，不然会崩渲染 */}
+                {Array.from({ length: isPhone ? METAL_DEPTH_SM : METAL_DEPTH }).map((_, index) => (
                     <div
                         key={index}
                         className="absolute inset-0 rounded-[2.4rem] border-2 border-white/25"
