@@ -217,7 +217,17 @@ export function PhoneNode ({
                             />
                             :<iframe
                                 title="view game"
-                                src={screenSrc}
+                                srcDoc={`<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body style="margin:0; background:#facc15; color:#111">
+        <div style="padding:48px 16px">
+            IFRAME TEST
+        </div>
+    </body>
+</html>`}
                                 className={[
                                     "h-full w-full rounded-[2.2rem] border-0 bg-black",
                                     isExpanded ? "pointer-events-auto" : "pointer-events-none",
