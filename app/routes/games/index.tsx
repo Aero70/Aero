@@ -70,7 +70,7 @@ export default function Games() {
           <PhoneMockup isExpanded={isMockupExpanded} setIsExpanded={setIsMockupExpanded} screenSrc={gameUrl} />
         </div>
 
-        <div className="hidden sm:block absolute mt-2 lg:mt-25 w-full sm:border-t border-t-black/10 pt-6 flex justify-center items-center">
+        <div className="hidden sm:flex justify-center items-center absolute mt-2 lg:mt-25 w-full sm:border-t border-t-black/10 pt-6 ">
           <div className="hidden sm:block absolute w-3 h-3 bg-(--palette-main-color) top-0 -translate-y-1/2 rounded-full border-2 border-black/10"></div>
 
           <div className="flex flex-col items-center text-(--palette-main-color)">
