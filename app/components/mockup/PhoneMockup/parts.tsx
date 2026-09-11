@@ -215,15 +215,7 @@ export function PhoneNode ({
                                 src="https://images.pexels.com/photos/32296537/pexels-photo-32296537.jpeg"
                                 className="h-full w-full object-cover rounded-[2.2rem] pointer-events-none"
                             />
-                            :<iframe
-                                title="view game"
-                                src={screenSrc}
-                                onLoad={() => console.log("游戏页面加载完成")}
-                                className={[
-                                    "h-full w-full rounded-[2.2rem] border-0 bg-black",
-                                    isExpanded ? "pointer-events-auto" : "pointer-events-none",
-                                ].join(" ")}
-                            />}
+                            :<div className="h-full w-full rounded-[2.2rem] bg-yellow-400" />}
                         </div>
 
                         {/* 屏幕玻璃反光 */}
