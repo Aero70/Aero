@@ -39,7 +39,7 @@ export default function Games() {
         <TextSVG text="HERE" position={{x:215,y:230}} className="stroke-4 lg:stroke-1 lg:hidden mt-38 stroke-[#000000]/20 dark:stroke-[#fff]/15" />
         <div 
           style={{ viewTransitionName: `hero-title-Games` }} 
-          className={['flex flex-col mt-82 lg:mt-52 ','[view-transition-class:herotitle]'].join(' ')}
+          className={['flex flex-col mt-82 lg:mt-48 ','[view-transition-class:herotitle]'].join(' ')}
         >
           <h1 className={`text-[1rem] text-(--palette-main-color) leading-2`}>
             <span>{GetGameData.tags.join(" - ")}</span>
