@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import type { RefObject } from "react";
 
 export const METAL_DEPTH = 38; // 机身厚度
-export const METAL_DEPTH_SM = 28; // 手机浏览时机身厚度
+export const METAL_DEPTH_SM = 25; // 手机浏览时机身厚度
 export const BUTTON_RISE = 3; // 按钮厚度
 
 
