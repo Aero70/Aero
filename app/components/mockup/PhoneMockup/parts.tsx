@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import type { RefObject } from "react";
 
-export const METAL_DEPTH = 38; // 机身厚度
+export const METAL_DEPTH = 32; // 机身厚度
 export const METAL_DEPTH_SM = 25; // 手机浏览时机身厚度
 export const BUTTON_RISE = 3; // 按钮厚度
 
@@ -25,56 +25,56 @@ export function SideButton({
     height: string;
     isExpanded: boolean
 }) {
-  const isLeft = side === "left";
+    const isLeft = side === "left";
+    const isPhone = window.matchMedia("(width < 640px)").matches;
+    return (
+        <div
+        className="absolute w-0 transform-3d"
+        style={{
+            top,
+            height,
+            left: isLeft ? 0 : undefined,
+            right: isLeft ? undefined : 0,
+        }}
+        >
+            {Array.from({ length: isExpanded ? 0 : BUTTON_RISE }).map((_, index) => {
+                const offset = index +(isPhone ? 0 : 3);
+                const isOuterLayer = isExpanded ? false : index === BUTTON_RISE - 1;
 
-  return (
-    <div
-      className="absolute w-0 transform-3d"
-      style={{
-        top,
-        height,
-        left: isLeft ? 0 : undefined,
-        right: isLeft ? undefined : 0,
-      }}
-    >
-        {Array.from({ length: isExpanded ? 0 : BUTTON_RISE }).map((_, index) => {
-            const offset = index + 3;
-            const isOuterLayer = isExpanded ? false : index === BUTTON_RISE - 1;
+                return (
+                <div
+                    key={index}
+                    className="absolute top-0 h-full w-[13px]"
+                    style={{
+                    left: isLeft ? `-${offset}px` : undefined,
+                    right: isLeft ? undefined : `-${offset}px`,
+                    transform: isLeft ? "rotateY(90deg)" : "rotateY(-90deg)",
+                    transformOrigin:isLeft ? "left center" : "right center",
+                    borderRadius: "6px",
+                    background: isOuterLayer
+                        ? "linear-gradient(140deg, #616161 6%, #bfbfbf 47%, #808080 79%, #212121 98%)"
+                        : "linear-gradient(181deg, #242424 4%, #dbdbdb 10%, #b0b0b0 14%, #4f4f4f 80%, #242424 92%, #bfbfbf 95%, #242424 98%)",
+                    border: isOuterLayer ? "1px solid #66666b" : "none",
+                    }}
+                />
+                );
+            })}
 
-            return (
-            <div
-                key={index}
-                className="absolute top-0 h-full w-[13px]"
-                style={{
-                left: isLeft ? `-${offset}px` : undefined,
-                right: isLeft ? undefined : `-${offset}px`,
-                transform: isLeft ? "rotateY(90deg)" : "rotateY(-90deg)",
-                transformOrigin:isLeft ? "left center" : "right center",
-                borderRadius: "6px",
-                background: isOuterLayer
-                    ? "linear-gradient(140deg, #616161 6%, #bfbfbf 47%, #808080 79%, #212121 98%)"
-                    : "linear-gradient(181deg, #242424 4%, #dbdbdb 10%, #b0b0b0 14%, #4f4f4f 80%, #242424 92%, #bfbfbf 95%, #242424 98%)",
-                border: isOuterLayer ? "1px solid #66666b" : "none",
-                }}
-            />
-            );
-        })}
-
-        {
-            isExpanded && (<div
-                className="absolute top-0 h-full w-[1.8px] rounded-[5px]"
-                style={{
-                    left: isLeft ? "-2.1px" : undefined,
-                    right: isLeft ? undefined : "-2.1px",
-                    borderRadius:isLeft ? "10px 0 0 10px " : "0 10px 10px 0 ",
-                    transform: "translateZ(3px)",
-                    background:
-                    "linear-gradient(181deg, #242424 4%, #dbdbdb 10%, #b0b0b0 14%, #4f4f4f 80%, #242424 92%, #bfbfbf 95%, #242424 98%)",
-                }}
-            />)
-        }
-    </div>
-  );
+            {
+                isExpanded && (<div
+                    className="absolute top-0 h-full w-[1.8px] rounded-[5px]"
+                    style={{
+                        left: isLeft ? "-2.1px" : undefined,
+                        right: isLeft ? undefined : "-2.1px",
+                        borderRadius:isLeft ? "10px 0 0 10px " : "0 10px 10px 0 ",
+                        transform: "translateZ(3px)",
+                        background:
+                        "linear-gradient(181deg, #242424 4%, #dbdbdb 10%, #b0b0b0 14%, #4f4f4f 80%, #242424 92%, #bfbfbf 95%, #242424 98%)",
+                    }}
+                />)
+            }
+        </div>
+    );
 }
 
 // 天线带
