@@ -170,7 +170,7 @@ export function PhoneNode ({
                 }}
             >
                 {/* 整体机身 */}
-                {Array.from({ length: METAL_DEPTH }).map((_, index) => (
+                {/* {Array.from({ length: METAL_DEPTH }).map((_, index) => (
                     <div
                         key={index}
                         className="absolute inset-0 rounded-[2.4rem] border-2 border-white/25"
@@ -180,7 +180,7 @@ export function PhoneNode ({
                             "linear-gradient(100deg, #f4f4f5 0%, #71717a 14%, #18181b 45%, #52525b 72%, #d4d4d8 100%)",
                         }}
                     />
-                ))}
+                ))} */}
 
                 {/* 天线带 */}
                 <AntennaBand side="left" top="4rem" />
@@ -210,7 +210,7 @@ export function PhoneNode ({
                         <div className="absolute left-1/2 top-3 z-10 h-5 w-20 -translate-x-1/2 rounded-full bg-neutral-950" />
                         
                         {/* 屏幕视口 */}
-                        {/* <div className="h-full w-full">
+                        <div className="h-full w-full">
                             {previewSrc || !screenSrc ? (
                                 <img
                                     alt="Game preview"
@@ -233,7 +233,7 @@ export function PhoneNode ({
                                     ].join(" ")}
                                 />
                             )}
-                        </div> */}
+                        </div>
 
                         {/* 屏幕玻璃反光 */}
                         {!isExpanded && (<div
