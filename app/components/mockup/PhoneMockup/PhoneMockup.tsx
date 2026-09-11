@@ -37,7 +37,33 @@ export default function PhoneMockup(
     const y = useMotionValue(0);
     const previewScale = useMotionValue(1);
 
+    const [isSmallScreen, setIsSmallScreen] = useState<boolean | null>(null);
+
     useEffect(() => {
+        const media = window.matchMedia("(width < 640px)");
+
+        function syncScreen() {
+            setIsSmallScreen(media.matches);
+
+            if (media.matches) {
+                setIsExpanded(false);
+            }
+        }
+
+        syncScreen();
+        media.addEventListener("change", syncScreen);
+
+        return () => {
+            media.removeEventListener("change", syncScreen);
+        };
+    }, [setIsExpanded]);
+
+    useEffect(() => {
+        if (isSmallScreen !== false) {
+            hasPosition.current = false;
+            return;
+        }
+
         const placeholder = placeholderRef.current;
         if (!placeholder) return;
 
@@ -134,7 +160,7 @@ export default function PhoneMockup(
             y.stop();
             previewScale.stop();
         };
-    }, [isExpanded, x, y, previewScale]);
+    }, [isSmallScreen,isExpanded, x, y, previewScale]);
 
 
     return (
@@ -145,7 +171,26 @@ export default function PhoneMockup(
                 className,
             ].filter(Boolean).join(" ")}
         >
-            {isMounted && createPortal(
+            {isSmallScreen === true && (
+                <div className="flex h-full w-full items-center justify-center perspective-[1200px]">
+                    <PhoneNode
+                        phoneRef={phoneRef}
+                        expandedScale={1}
+                        isExpanded={false}
+                        screenSrc={screenSrc}
+                        onActivate={() => {
+                            if (screenSrc) {
+                                window.open(
+                                    screenSrc,
+                                    "_blank",
+                                    "noopener,noreferrer",
+                                );
+                            }
+                        }}
+                    />
+                </div>
+            )}
+            {isSmallScreen === false && isMounted && createPortal(
                 <div className="pointer-events-none fixed inset-0" style={{zIndex : isExpanded ? 100 : 15}}>
                     <AnimatePresence initial={false}>
                         {isExpanded && (
