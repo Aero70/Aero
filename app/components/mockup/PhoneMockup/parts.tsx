@@ -5,7 +5,6 @@ export const METAL_DEPTH = 38; // 机身厚度
 export const METAL_DEPTH_SM = 28; // 手机浏览时机身厚度
 export const BUTTON_RISE = 3; // 按钮厚度
 
-const isPhone = window.matchMedia("(width < 640px)").matches;
 
 // 动画运动过渡
 export const PHONE_SPRING = {
@@ -88,37 +87,37 @@ export function AntennaBand({
     top?: string;
     bottom?: string;
 }) {
-  const isLeft = side === "left";
+    const isLeft = side === "left";
+    const isPhone = window.matchMedia("(width < 640px)").matches;
+    return (
+        <>
+        <div
+            className="absolute h-[3px]"
+            style={{
+                top,
+                bottom,
+                width: `${(isPhone ? METAL_DEPTH_SM : METAL_DEPTH) + 3 }px`,
+                left: isLeft ? "0px" : undefined,
+                right: isLeft ? undefined : "0px",
+                transform: isLeft ? "rotateY(90deg) translateX(-3px)" : "rotateY(-90deg)",
+                transformOrigin: isLeft ? "left center" : "right center",
+                background: "#707070",
+            }}
+        />
 
-  return (
-    <>
-      <div
-        className="absolute h-[3px]"
-        style={{
-            top,
-            bottom,
-            width: `${(isPhone ? METAL_DEPTH_SM : METAL_DEPTH) + 3 }px`,
-            left: isLeft ? "0px" : undefined,
-            right: isLeft ? undefined : "0px",
-            transform: isLeft ? "rotateY(90deg) translateX(-3px)" : "rotateY(-90deg)",
-            transformOrigin: isLeft ? "left center" : "right center",
-            background: "#707070",
-        }}
-      />
-
-      <div
-        className="absolute z-20 h-[3px] w-[2px]"
-        style={{
-            top,
-            bottom,
-            left: isLeft ? "0px" : undefined,
-            right: isLeft ? undefined : "0px",
-            transform: "translateZ(3px)",
-            background: "#707070",
-        }}
-      />
-    </>
-  );
+        <div
+            className="absolute z-20 h-[3px] w-[2px]"
+            style={{
+                top,
+                bottom,
+                left: isLeft ? "0px" : undefined,
+                right: isLeft ? undefined : "0px",
+                transform: "translateZ(3px)",
+                background: "#707070",
+            }}
+        />
+        </>
+    );
 }
 
 
@@ -152,7 +151,8 @@ export function PhoneNode ({
         scale: expandedScale,
     };
     const targetPose = isExpanded ? expandedPose : previewPose;
-  
+    const isPhone = window.matchMedia("(width < 640px)").matches;
+    
      return (
         <motion.div
             ref={phoneRef}
