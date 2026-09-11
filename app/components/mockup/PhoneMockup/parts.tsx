@@ -170,7 +170,7 @@ export function PhoneNode ({
                 }}
             >
                 {/* 整体机身 */}
-                {/* {Array.from({ length: METAL_DEPTH }).map((_, index) => (
+                {Array.from({ length: 5 }).map((_, index) => (
                     <div
                         key={index}
                         className="absolute inset-0 rounded-[2.4rem] border-2 border-white/25"
@@ -180,7 +180,7 @@ export function PhoneNode ({
                             "linear-gradient(100deg, #f4f4f5 0%, #71717a 14%, #18181b 45%, #52525b 72%, #d4d4d8 100%)",
                         }}
                     />
-                ))} */}
+                ))}
 
                 {/* 天线带 */}
                 <AntennaBand side="left" top="4rem" />
